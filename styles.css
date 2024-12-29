@@ -1,0 +1,194 @@
+:root {
+    --bg-primary: #20232C;
+    --bg-secondary: #1A1C24;
+    --accent: #E391A6;
+    --text: #ffffff;
+}
+
+body {
+    background-color: var(--bg-primary);
+    color: var(--text);
+    min-height: 100vh;
+}
+
+.custom-card {
+    background-color: var(--bg-secondary);
+    border-radius: 15px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.custom-card:hover {
+    transform: translateY(-2px);
+}
+
+.settings-btn {
+    background: transparent;
+    border: none;
+    color: var(--accent);
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 1000;
+    transition: transform 0.3s ease;
+}
+
+.settings-btn:hover {
+    transform: rotate(45deg);
+}
+
+.custom-input {
+    background-color: var(--bg-primary) !important;
+    border: 1px solid rgba(255, 255, 255, 0.1) !important;
+    color: var(--text) !important;
+}
+
+.custom-input:focus {
+    border-color: var(--accent) !important;
+    box-shadow: 0 0 0 0.25rem rgba(227, 145, 166, 0.25) !important;
+}
+
+.custom-select {
+    background-color: var(--bg-primary) !important;
+    border: 1px solid rgba(255, 255, 255, 0.1) !important;
+    color: var(--text) !important;
+}
+
+.generate-btn {
+    background-color: var(--accent) !important;
+    border: none !important;
+    padding: 10px 30px !important;
+    font-weight: 600 !important;
+    transition: transform 0.3s ease !important;
+}
+
+.generate-btn:hover {
+    transform: scale(1.02);
+}
+
+.settings-modal {
+    background-color: var(--bg-secondary);
+    border-radius: 15px;
+    position: fixed;
+    top: 70px;
+    right: 20px;
+    width: 300px;
+    padding: 20px;
+    z-index: 1000;
+    display: none;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+.image-card {
+    background-color: var(--bg-secondary);
+    border-radius: 15px;
+    overflow: hidden;
+    margin-bottom: 20px;
+    transition: transform 0.3s ease;
+}
+
+.image-card:hover {
+    transform: translateY(-5px);
+}
+
+.image-card img {
+    width: 100%;
+    height: auto;
+    border-radius: 15px 15px 0 0;
+    transition: transform 0.3s ease;
+}
+
+.image-card:hover img {
+    transform: scale(1.02);
+}
+
+.prompt-suggestions {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin-bottom: 15px;
+}
+
+.prompt-tag {
+    background-color: var(--bg-primary);
+    color: var(--accent);
+    padding: 5px 15px;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-size: 0.9rem;
+}
+
+.prompt-tag:hover {
+    background-color: var(--accent);
+    color: var(--bg-primary);
+}
+
+.api-note {
+    font-size: 0.85rem;
+    color: rgba(255, 255, 255, 0.7);
+    margin-top: 10px;
+}
+
+.api-note a {
+    color: var(--accent);
+    text-decoration: none;
+}
+
+.prompt-helper {
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    color: var(--accent);
+    cursor: pointer;
+}
+
+@media (max-width: 768px) {
+    .container {
+        width: 95% !important;
+        padding: 10px;
+    }
+    
+    .settings-modal {
+        width: 90%;
+        right: 5%;
+    }
+
+    .prompt-suggestions {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 5px;
+    }
+
+    .prompt-tag {
+        text-align: center;
+        font-size: 0.8rem;
+    }
+}
+
+/* Loading animation */
+.loading-animation {
+    width: 100%;
+    height: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--bg-secondary);
+    border-radius: 15px;
+}
+
+.loading-animation::after {
+    content: "";
+    width: 50px;
+    height: 50px;
+    border: 5px solid #f3f3f3;
+    border-top: 5px solid var(--accent);
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
